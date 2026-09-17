@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css">
+    <title>Simulador de Atenuación</title>
+</head>
+
+<body>
+    <h1>Simulador de Atenuación Pasiva de Señales Celulares</h1>
+
+    <div id="simulador">
+
+        <!-- Plano 2D -->
+        <section id="plano">
+            <h2>Plano 2D</h2>
+            <div id="canvas-plano">
+                <div id="emisor"></div>
+                <div id="receptor"></div>
+                <div id="canvas-plano">
+                <div id="scale-marks" aria-hidden="true"></div>
+</div>
+            </div>
+        </section>
+
+        <!-- Panel de controles -->
+        <section id="controles">
+            <h2>Controles</h2>
+
+            <label for="tecnologia">Tecnología:</label>
+            <select id="tecnologia">
+                <option value="2G">2G - 850 MHz</option>
+                <option value="3G">3G - 1900 MHz</option>
+                <option value="4G">4G - 2100 MHz</option>
+                <option value="5Gsub6">5G Sub-6 - 3500 MHz</option>
+                <option value="5Gmmwave">5G mmWave - 28000 MHz</option>
+            </select>
+
+            <label for="material">Material:</label>
+            <select id="material">
+                <option value="concreto">Concreto</option>
+                <option value="ladrillo">Ladrillo</option>
+                <option value="malla">Malla metálica</option>
+            </select>
+
+            <label for="espesor">Espesor del muro (m):</label>
+            <input type="range" id="espesor" min="0.05" max="1.0" step="0.01" value="0.1">
+
+            <label for="distancia">Distancia (m):</label>
+            <input type="range" id="distancia" min="1" max="100" step="1" value="10">
+            <span id="distancia-valor">10 m</span>
+            <input type="number" id="distancia-num" min="1" max="100" step="1" value="10" style="width:80px; margin-left:8px;">
+
+        </section>
+
+        <!-- Panel de resultados -->
+        <section id="resultados">
+            <h2>Resultados</h2>
+
+            <p>FSPL: <span id="fspl">--</span> dB</p>
+            <p>Atenuación del material: <span id="at-material">--</span> dB</p>
+            <p>Potencia recibida: <span id="potencia-rx">--</span> dBm</p>
+
+            <div id="indicador"></div>
+        </section>
+
+    </div>
+
+    <script type="module" src="./js/main.js"></script>
+</body>
+</html>
